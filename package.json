@@ -17,7 +17,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../../../osa2/02-soveltavat-tehtavat/puhelinluettelo && npm run build && cp -r dist ../../../osa3/02-soveltavat-tehtavat/puhelinluettelo-back-end",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "dependencies": {
     "cors": "^2.8.5",
