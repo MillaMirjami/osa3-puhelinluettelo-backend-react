@@ -56,9 +56,12 @@ app.put('/api/persons/:id', async (request, response, next) => {
     person.name = request.body.name
     person.number = request.body.number
 
-    return person.save().then(updatedPerson => {
+    return person
+    .save()
+    .then(updatedPerson => {
         response.json(updatedPerson)
     })
+    .catch(error => next(error))
 
 })
 
